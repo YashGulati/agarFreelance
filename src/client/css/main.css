@@ -300,6 +300,31 @@ div {
     opacity: 0;
 }
 
+#social-down{
+  height: 50px;
+  width: 25%;
+  /*border: 2px solid red;*/
+  color: white;
+  font-family: sans-serif;
+  margin: 0 auto;
+}
+#social-down>div{
+  float: right;
+}
+#social-down>div>p{
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);font-size: 1em;
+  float: left;
+}
+
+#social-down>div>img{
+  margin-left: 5px;
+  float: left;
+  height: 30px;
+}
+
 @media only screen  and (min-width : 1224px) {
 #mobile {
 display: none;
