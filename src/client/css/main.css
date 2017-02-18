@@ -301,10 +301,18 @@ div {
 }
 
 #social-up{
-  /*margin: 0 auto;*/
+  /*border: 2px solid red;*/
   margin-bottom: 10px;
 
 }
+
+#social-up span{
+  margin: auto auto;
+  position: relative;
+  left: 25%;
+  /*border: 2px solid blue;*/
+}
+
 
 #social-down{
   height: 50px;
@@ -324,7 +332,7 @@ div {
   float: left;
 }
 
-#social-down>div>img{
+#social-down>div img{
   margin-left: 12px;
   float: left;
   height: 30px;
