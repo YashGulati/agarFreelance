@@ -53,14 +53,15 @@ window.onload = function() {
         nickErrorText = document.querySelector('#startMenu .input-error');
 
     btnS.onclick = function () {
+        $('canvas').css('display','block');
         startGame('spectate');
     };
 
     btn.onclick = function () {
-
         // Checks if the nick is valid.
         if (validNick()) {
             nickErrorText.style.opacity = 0;
+            $('canvas').css('display','block');
             startGame('player');
         } else {
             nickErrorText.style.opacity = 1;
@@ -388,12 +389,12 @@ function drawVirus(virus) {
     graph.strokeStyle = virus.stroke;
     graph.fillStyle = virus.fill;
     graph.lineWidth = virus.strokeWidth;
-    
- 
+
+
     if(virus.vir==1){
     graph.drawImage(v1,virus.x - player.x + global.screenWidth / 2,
                virus.y - player.y + global.screenHeight / 2,virus.radius+50,virus.radius+120);
-    
+
 }else  if(virus.vir==2){
     graph.drawImage(v2,virus.x - player.x + global.screenWidth / 2,
                virus.y - player.y + global.screenHeight / 2,virus.radius+50,virus.radius+120);
@@ -426,7 +427,7 @@ function drawPlayers(order) {
     {
         var userCurrent = users[order[z].nCell];
         var cellCurrent = users[order[z].nCell].cells[order[z].nDiv];
-       
+
         var x=0;
         var y=0;
 
@@ -436,7 +437,7 @@ function drawPlayers(order) {
         graph.strokeStyle = 'hsl(' + userCurrent.hue + ', 100%, 45%)';
         graph.fillStyle = 'hsl(' + userCurrent.hue + ', 100%, 50%)';
         if(userCurrent.hue)
-       
+
         graph.lineWidth = playerConfig.border;
 
         var xstore = [];
@@ -486,8 +487,8 @@ function drawPlayers(order) {
         }
         graph.lineJoin = 'round';
         graph.lineCap = 'round';
-       
-        
+
+
         var gradient=graph.createRadialGradient(circle.x,circle.y,cellCurrent.radius-cellCurrent.radius/2,circle.x,circle.y,cellCurrent.radius);
         var color,color1;
         currenthue=userCurrent.hue;
@@ -533,7 +534,7 @@ function drawPlayers(order) {
         graph.fillStyle=gradient;
         graph.globalAlpha=0.7;
         graph.fill();
-        
+
         graph.globalAlpha=1;
         var nameCell = "";
 
@@ -551,18 +552,18 @@ function drawPlayers(order) {
         graph.textAlign = 'center';
         graph.textBaseline = 'middle';
         graph.font = 'bold ' + fontSize + 'px sans-serif';
-         
-       
+
+
         if(userCurrent.hue>0 && userCurrent.hue <26){
         if (global.toggleMassState === 0) {
             graph.drawImage(p6,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
 
-            
+
         } else {
             graph.drawImage(p6,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -570,17 +571,17 @@ function drawPlayers(order) {
             graph.drawImage(p6,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>25 && userCurrent.hue <51){
         if (global.toggleMassState === 0) {
             graph.drawImage(p5,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p5,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -588,17 +589,17 @@ function drawPlayers(order) {
             graph.drawImage(p5,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>50 && userCurrent.hue <61){
         if (global.toggleMassState === 0) {
             graph.drawImage(p1,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p1,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -606,17 +607,17 @@ function drawPlayers(order) {
             graph.drawImage(p1,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>60 && userCurrent.hue <141){
         if (global.toggleMassState === 0) {
             graph.drawImage(p7,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p7,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -624,17 +625,17 @@ function drawPlayers(order) {
             graph.drawImage(p7,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>140 && userCurrent.hue <191){
         if (global.toggleMassState === 0) {
             graph.drawImage(p4,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p4,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -642,17 +643,17 @@ function drawPlayers(order) {
             graph.drawImage(p4,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>190 && userCurrent.hue <251){
         if (global.toggleMassState === 0) {
             graph.drawImage(p8,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p8,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -660,17 +661,17 @@ function drawPlayers(order) {
             graph.drawImage(p8,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>250 && userCurrent.hue <301){
         if (global.toggleMassState === 0) {
             graph.drawImage(p2,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p2,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -678,17 +679,17 @@ function drawPlayers(order) {
             graph.drawImage(p2,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>300 && userCurrent.hue <341){
         if (global.toggleMassState === 0) {
             graph.drawImage(p3,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p3,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -696,17 +697,17 @@ function drawPlayers(order) {
             graph.drawImage(p3,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }else if(userCurrent.hue>340){
         if (global.toggleMassState === 0) {
             graph.drawImage(p9,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
-            
+
         } else {
             graph.drawImage(p9,circle.x-79, circle.y-52.5,158,95);
-            
+
             graph.strokeText(nameCell, circle.x, circle.y);
             graph.fillText(nameCell, circle.x, circle.y);
             graph.font = 'bold ' + Math.max(fontSize / 3 * 2, 10) + 'px sans-serif';
@@ -714,7 +715,7 @@ function drawPlayers(order) {
             graph.drawImage(p9,circle.x-79, circle.y-52.5,158,95);
             graph.strokeText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
             graph.fillText(Math.round(cellCurrent.mass), circle.x, circle.y+fontSize);
-            
+
         }
     }
     }
@@ -723,7 +724,7 @@ function drawFireFood(mass) {
     graph.strokeStyle = 'hsl(' + mass.hue + ', 100%, 45%)';
     graph.fillStyle = 'hsl(' + mass.hue + ', 100%, 50%)';
     graph.lineWidth = playerConfig.border+10;
-    
+
      if(currenthue>0 && currenthue <26){
         graph.drawImage(f6,mass.x - player.x + global.screenWidth / 2,
                mass.y - player.y + global.screenHeight / 2,
@@ -761,7 +762,7 @@ function drawFireFood(mass) {
                mass.y - player.y + global.screenHeight / 2,
                mass.radius+5, mass.radius+10);
     }
-    
+
 }
 function valueInRange(min, max, value) {
     return Math.min(max, Math.max(min, value));
@@ -770,19 +771,19 @@ function valueInRange(min, max, value) {
 function drawgrid() {
      graph.lineWidth = 1;
      graph.strokeStyle = global.lineColor;
-     
-     
+
+
 
     for (var x = global.xoffset - player.x; x < global.screenWidth; x += 100) {
-    
+
     for (var y = global.yoffset - player.y ; y < global.screenHeight; y += 100) {
        graph.drawImage(back1,x,y,100,100);
-    }   
+    }
     }
 
-    
 
-  
+
+
 }
 
 function drawborder() {
@@ -856,10 +857,10 @@ function gameLoop() {
         // graph.fillRect(0, 0, global.screenWidth, global.screenHeight,100.25,100.25);
 
         for (var x1 = 0; x1 < global.screenWidth; x1 += 100) {
-    
+
     for (var y1 = 0 ; y1 < global.screenHeight; y1 += 100) {
        graph.drawImage(back1,x1,y1,100,100);
-    }   
+    }
     }
 
 
@@ -903,10 +904,10 @@ function gameLoop() {
         // graph.fillRect(0, 0, global.screenWidth, global.screenHeight,100.25,100.25);
 
           for (var x2= 0; x2 < global.screenWidth; x2 += 100) {
-    
+
     for (var y2 = 0 ; y2 < global.screenHeight; y2 += 100) {
        graph.drawImage(back1,x2,y2,100,100);
-    }   
+    }
     }
 
             graph.textAlign = 'center';
@@ -919,10 +920,10 @@ function gameLoop() {
         // graph.fillRect(0, 0, global.screenWidth, global.screenHeight,100.25,100.25);
 
           for (var x3 = 0; x3 < global.screenWidth; x3 += 100) {
-    
+
     for (var y3 = 0 ; y3 < global.screenHeight; y3 += 100) {
        graph.drawImage(back1,x3,y3,100,100);
-    }   
+    }
     }
 
         graph.textAlign = 'center';
